@@ -5,4 +5,4 @@ Enable the preview by pressing `ctrl+b`
 
 ### Roadmap
 
-- [] Allow custom mappings
+- [ ] Allow custom mappings
