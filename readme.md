@@ -6,3 +6,5 @@ Enable the preview by pressing `ctrl+b`
 ### Roadmap
 
 - [ ] Allow custom mappings
+- [x] Auto close command
+- [ ] User command for opening
