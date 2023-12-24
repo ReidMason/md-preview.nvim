@@ -9,12 +9,10 @@ local showPreview = function()
 	local curr_buff = vim.api.nvim_get_current_buf()
 	local curr_file = vim.api.nvim_buf_get_name(curr_buff)
 
-	-- Don't run for non markdown files
+	-- Only run for markdown files
 	if string.match(curr_file, "^.*.md$") == nil then
 		return
 	end
-
-	local x = vim.api.nvim_buf_get_lines(curr_buff, 0, -1, false)
 
 	if M._win == nil then
 		vim.cmd.vsplit()
@@ -22,16 +20,9 @@ local showPreview = function()
 	end
 	vim.api.nvim_set_current_win(M._win)
 
-	-- vim.cmd.terminal("glow " .. curr_file)
-	local text = '"' .. table.concat(x, "\n") .. '"'
-	text = text:gsub("#", "\\#")
-	-- text = text:gsub("<", "\\<")
-	-- text = text:gsub(">", "\\>")
-	text = text:gsub("`", "\\`")
+	vim.cmd.terminal("glow " .. curr_file)
 
-	local command = "echo " .. text .. " | glow -"
-	vim.cmd.terminal(command)
-
+	-- Disable line numbers
 	if not M._showLineNumbers then
 		vim.cmd("setlocal nonumber norelativenumber")
 	end
