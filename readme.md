@@ -1,8 +1,11 @@
 # md-preview.nvim
 
-Adds a markdown preview window inside neovim.
+Adds a markdown preview window inside neovim.\
+This plugin uses [Charmbracelts Glow](https://github.com/charmbracelet/glow) markdown renderer to draw the preview
 
 ## Installation
+
+First install [Glow](https://github.com/charmbracelet/glow)
 
 ### [lazy.nvim](https://github.com/folke/lazy.nvim)
 
@@ -14,11 +17,16 @@ return {
 }
 ```
 
-You can then map a keybind to the user created user commands
+You can then map a keybind to the user commands
 
 ```lua
 vim.keymap.set("n", "<C-b>", "<cmd> OpenMdPreview <CR>", {})
 ```
+
+### Commands
+
+- OpenMdPreview
+- CloseMdPreview
 
 ### Setup options
 
@@ -33,3 +41,6 @@ require("md-preview.nvim").setup({
 - [x] Allow custom mappings
 - [x] Auto close command
 - [x] User command for opening
+- [x] Disable line numbers
+- [ ] Custom markdown renderers
+- [ ] Toggle command
