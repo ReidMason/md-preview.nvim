@@ -2,6 +2,7 @@ local M = {}
 
 -- M._buf = nil
 M._win = nil
+M._showLineNumbers = false
 
 local showPreview = function()
 	local currWin = vim.api.nvim_get_current_win()
@@ -31,6 +32,10 @@ local showPreview = function()
 	local command = "echo " .. text .. " | glow -"
 	vim.cmd.terminal(command)
 
+	if not M._showLineNumbers then
+		vim.cmd("setlocal nonumber norelativenumber")
+	end
+
 	vim.api.nvim_set_current_win(currWin)
 end
 
@@ -39,7 +44,11 @@ local closePreview = function()
 	vim.api.nvim_buf_delete(buff, {})
 end
 
-M.setup = function()
+M.setup = function(config)
+	if config.showLineNumbers then
+		M._showLineNumbers = config.showLineNumbers
+	end
+
 	vim.api.nvim_create_user_command("OpenMdPreview", function()
 		showPreview()
 	end, {})
