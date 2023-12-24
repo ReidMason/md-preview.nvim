@@ -23,12 +23,12 @@ You can then map a keybind to the user commands
 vim.keymap.set("n", "<C-b>", "<cmd> OpenMdPreview <CR>", {})
 ```
 
-### Commands
+## Commands
 
 - OpenMdPreview
 - CloseMdPreview
 
-### Setup options
+## Setup options
 
 ```lua
 require("md-preview.nvim").setup({
@@ -36,7 +36,7 @@ require("md-preview.nvim").setup({
 })
 ```
 
-### Roadmap
+## Roadmap
 
 - [x] Allow custom mappings
 - [x] Auto close command
