@@ -1,7 +1,6 @@
 # md-preview.nvim
 
-Adds a markdown preview window inside neovim.\
-Enable the preview by pressing `ctrl+b`
+Adds a markdown preview window inside neovim.
 
 ## Installation
 
@@ -10,9 +9,15 @@ Enable the preview by pressing `ctrl+b`
 ```lua
 return {
     "reidmason/md-preview.nvim",
-    cmd = { "OpenMdPreview" },
+    cmd = { "OpenMdPreview", "CloseMdPreview" },
     opts = {}
 }
+```
+
+You can then map a keybind to the user created user commands
+
+```lua
+vim.keymap.set("n", "<C-b>", "<cmd> OpenMdPreview <CR>", {})
 ```
 
 ### Setup options

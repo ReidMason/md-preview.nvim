@@ -35,13 +35,26 @@ local closePreview = function()
 	vim.api.nvim_buf_delete(buff, {})
 end
 
+local enablePreview = function()
+	local curr_buff = vim.api.nvim_get_current_buf()
+	local augroup = vim.api.nvim_create_augroup("MarkdownPreview", {})
+
+	vim.api.nvim_create_autocmd("BufWritePost", {
+		group = augroup,
+		buffer = curr_buff,
+		callback = showPreview,
+	})
+
+	showPreview()
+end
+
 M.setup = function(config)
 	if config.showLineNumbers then
 		M._showLineNumbers = config.showLineNumbers
 	end
 
 	vim.api.nvim_create_user_command("OpenMdPreview", function()
-		showPreview()
+		enablePreview()
 	end, {})
 
 	vim.api.nvim_create_user_command("CloseMdPreview", function()
