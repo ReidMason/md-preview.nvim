@@ -34,14 +34,18 @@ local showPreview = function()
 	vim.api.nvim_set_current_win(currWin)
 end
 
+local closePreview = function()
+	local buff = vim.api.nvim_win_get_buf(M._win)
+	vim.api.nvim_buf_delete(buff, {})
+end
+
 M.setup = function()
 	vim.api.nvim_create_user_command("OpenMdPreview", function()
 		showPreview()
 	end, {})
 
 	vim.api.nvim_create_user_command("CloseMdPreview", function()
-		local buff = vim.api.nvim_win_get_buf(M._win)
-		vim.api.nvim_buf_delete(buff, {})
+		closePreview()
 	end, {})
 end
 
