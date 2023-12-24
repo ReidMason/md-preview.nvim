@@ -35,17 +35,7 @@ local showPreview = function()
 end
 
 M.setup = function()
-	vim.keymap.set("n", "<C-b>", function()
-		local curr_buff = vim.api.nvim_get_current_buf()
-
-		local augroup = vim.api.nvim_create_augroup("MarkdownPreview", {})
-		-- { "TextChanged", "TextChangedI" }
-		vim.api.nvim_create_autocmd("BufWritePost", {
-			group = augroup,
-			buffer = curr_buff,
-			callback = showPreview,
-		})
-
+	vim.api.nvim_create_user_command("OpenMdPreview", function()
 		showPreview()
 	end, {})
 

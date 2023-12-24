@@ -7,4 +7,4 @@ Enable the preview by pressing `ctrl+b`
 
 - [ ] Allow custom mappings
 - [x] Auto close command
-- [ ] User command for opening
+- [x] User command for opening
