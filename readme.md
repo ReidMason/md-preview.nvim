@@ -1,7 +1,7 @@
 # md-preview.nvim
 
 Adds a markdown preview window inside neovim.\
-This plugin uses [Charmbracelts Glow](https://github.com/charmbracelet/glow) markdown renderer to draw the preview
+This plugin uses [Charm Glow](https://github.com/charmbracelet/glow) markdown renderer to draw the preview
 
 ## Installation
 
