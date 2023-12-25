@@ -32,7 +32,7 @@ vim.keymap.set("n", "<C-b>", "<cmd> OpenMdPreview <CR>", {})
 
 ```lua
 require("md-preview.nvim").setup({
-  showLineNumbers = false,
+  showLineNumbers = false, -- Show line numbers on preview
 })
 ```
 
